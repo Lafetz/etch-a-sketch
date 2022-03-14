@@ -1,5 +1,4 @@
 const divholder=document.querySelector('.divholder');
-
 const reset=document.querySelector('#reset')
 const rainbow=document.querySelector('#rainbow')
 const normalColor=document.querySelector("#normal")
@@ -14,9 +13,6 @@ normalButton();
 colorChange();
 resetColor();
  
-
-
-
 
 
 
@@ -67,15 +63,6 @@ function normalButton(){
         colorRain=true;
     })
 }
-
-
-
-
-
-
-
-
-
 
 function newgrid(){
    
