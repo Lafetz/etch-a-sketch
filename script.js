@@ -78,21 +78,28 @@ function normalButton(){
 
 
 
-
 function newgrid(){
+   
+    
     newGrid.addEventListener('click',()=>{
+        let divNumber=prompt("Enter size of Grid");
+        if(divNumber>100) alert("Grid size must be less than 100");
+        else if(divNumber==undefined){return }
+        else{
         const squares=document.querySelectorAll('.square');
         squares.forEach(square=>{
             divholder.removeChild(square);
         })
-        let divNumber=prompt("enter number of grids you want");
+       
         let divHeight=400/divNumber;
         addDiv(divNumber,divHeight);
         colorful();
         normalButton();
         colorChange();
         resetColor();
+    }
     }) 
+
    
 }
 
