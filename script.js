@@ -1,14 +1,15 @@
 const divholder=document.querySelector('.divholder');
-const divNumber=prompt("enter number of grids you want");
-const divHeight=400/divNumber;
+let divNumber=prompt("enter number of grids you want");
+let divHeight=400/divNumber;
 const reset=document.querySelector('#reset')
 const rainbow=document.querySelector('#rainbow')
 const normalColor=document.querySelector("#normal")
+const newGrid=document.querySelector('#newGrid')
 let Color='black';
 let colorRain=true;
 
-
-addDiv(divNumber);
+newgrid();
+addDiv(divNumber,divHeight);
 colorful();
 normalButton();
 colorChange();
@@ -21,7 +22,7 @@ resetColor();
 
 
 
-function addDiv(divsize){
+function addDiv(divsize,divHeight){
     for(let i=0;i<divsize*divsize;i++){
         let div=document.createElement('div');
         div.classList.add('square');
@@ -67,3 +68,31 @@ function normalButton(){
         colorRain=true;
     })
 }
+
+
+
+
+
+
+
+
+
+
+
+function newgrid(){
+    newGrid.addEventListener('click',()=>{
+        const squares=document.querySelectorAll('.square');
+        squares.forEach(square=>{
+            divholder.removeChild(square);
+        })
+        let divNumber=prompt("enter number of grids you want");
+        let divHeight=400/divNumber;
+        addDiv(divNumber,divHeight);
+        colorful();
+        normalButton();
+        colorChange();
+        resetColor();
+    }) 
+   
+}
+
