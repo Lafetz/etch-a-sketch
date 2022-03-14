@@ -1,11 +1,67 @@
 const divholder=document.querySelector('.divholder');
 const divNumber=prompt("enter number of grids you want");
-divholder.style.height=`${divNumber*100+divNumber*2}px`
-divholder.style.width=`${divNumber*100+divNumber*2}px`
-for(let i=0;i<divNumber*divNumber;i++){
-    let div=document.createElement('div');
-    div.classList.add('square');
-    divholder.appendChild(div) 
+const divHeight=400/divNumber;
+const reset=document.querySelector('#reset')
+const rainbow=document.querySelector('#rainbow')
+const normalColor=document.querySelector("#normal")
+let Color='black';
+
+
+addDiv(divNumber);
+colorful();
+normalButton();
+colorChange();
+resetColor();
+ 
+
+
+
+
+
+
+
+function addDiv(divsize){
+    for(let i=0;i<divsize*divsize;i++){
+        let div=document.createElement('div');
+        div.classList.add('square');
+        div.style.maxHeight=`${divHeight}px`
+        div.style.minWidth=`${divHeight}px`
+        divholder.appendChild(div);
+
+    }
 }
 
+function colorChange(){
+    const squares=document.querySelectorAll('.square');
+squares.forEach(square => {
+              square.addEventListener('mouseover',()=>{
+                  square.style.backgroundColor=Color;
+              })    
+});
+}
 
+function resetColor(){
+ 
+    reset.addEventListener('click',()=>{
+        const squares=document.querySelectorAll('.square');
+        squares.forEach(square => {
+                          square.style.backgroundColor="grey";
+                      })    
+        });
+   
+}
+
+function randomRgb(){
+     return Math.floor(Math.random()*255);
+}
+
+function colorful(){
+    rainbow.addEventListener('click',()=>{
+        Color=`rgb(${randomRgb()},${randomRgb()},${randomRgb()})`;
+    });
+}
+function normalButton(){
+    normalColor.addEventListener('click',()=>{
+        Color='black';
+    })
+}
