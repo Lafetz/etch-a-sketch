@@ -1,6 +1,5 @@
 const divholder=document.querySelector('.divholder');
-let divNumber=prompt("enter number of grids you want");
-let divHeight=400/divNumber;
+
 const reset=document.querySelector('#reset')
 const rainbow=document.querySelector('#rainbow')
 const normalColor=document.querySelector("#normal")
@@ -9,7 +8,7 @@ let Color='black';
 let colorRain=true;
 
 newgrid();
-addDiv(divNumber,divHeight);
+addDiv(8,50);
 colorful();
 normalButton();
 colorChange();
